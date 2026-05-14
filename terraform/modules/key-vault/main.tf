@@ -7,7 +7,7 @@ resource "azurerm_key_vault" "vault" {
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days  = 90
-  purge_protection_enabled    = false
+  purge_protection_enabled    = true
   rbac_authorization_enabled  = true
   sku_name                    = "standard"
   public_network_access_enabled = false
@@ -57,4 +57,36 @@ resource "azurerm_monitor_diagnostic_setting" "key_vault_diagnostics" {
 output "secret_value" {
   value     = azurerm_key_vault_secret.vaultsecret.value
   sensitive = true
+}
+
+
+resource "azurerm_key_vault_key" "vault_key" {
+  name         = "key-vault-certificate"
+  key_vault_id = azurerm_key_vault.vault.id
+  key_type     = "RSA"
+  key_size     = 2048
+
+  key_opts = [
+    "decrypt",
+    "encrypt",
+    "sign",
+    "unwrapKey",
+    "verify",
+    "wrapKey",
+  ]
+
+  rotation_policy {
+    automatic {
+      time_before_expiry = "P30D"
+    }
+
+    expire_after         = "P90D"
+    notify_before_expiry = "P29D"
+  }
+}
+
+resource "azurerm_role_assignment" "vault-key-crypto-user-role" {
+  scope                = azurerm_key_vault.vault.id
+  role_definition_name = "Key Vault Crypto Service Encryption User"
+  principal_id         = azurerm_disk_encryption_set.example.identity[0].principal_id
 }
