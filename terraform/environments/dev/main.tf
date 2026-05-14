@@ -54,11 +54,10 @@ module "private_endpoints" {
 }
 
 module "storage" {
-  source                          = "../../modules/storage/"
-  resource_group_name             = azurerm_resource_group.main.name
-  location                        = azurerm_resource_group.main.location
-  key_vault_key_id                = module.key_vault.key_vault_key_id
-  depends_on                      = [module.key_vault]
-  user_assigned_identity_id       = module.identity.storage_cmk_identity_id
-  crypto_role_assignment_identity = module.identity.crypto_role_assignment_identity
+  source                    = "../../modules/storage/"
+  resource_group_name       = azurerm_resource_group.main.name
+  location                  = azurerm_resource_group.main.location
+  key_vault_key_id          = module.key_vault.key_vault_key_id
+  user_assigned_identity_id = module.identity.storage_cmk_identity_id
+  depends_on                = [module.key_vault, module.identity]
 }
