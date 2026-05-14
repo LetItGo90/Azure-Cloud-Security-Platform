@@ -43,3 +43,12 @@ module "key_vault" {
   github_actions_principal_id = module.identity.github_actions_principal_id
   workload_principal_id       = module.identity.workload_principal_id
 }
+
+module "private_endpoints" {
+  source              = "../../modules/private-endpoints/"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.main.location
+  hub_vnet_id         = module.networking.hub_vnet_id
+  spoke_subnet_id     = module.networking.pe_subnet_id
+  key_vault_id        = module.key_vault.key_vault_id
+}

@@ -187,11 +187,7 @@ resource "azurerm_subnet_network_security_group_association" "pe" {
   subnet_id                 = azurerm_subnet.pe.id
   network_security_group_id = azurerm_network_security_group.pe.id
 }
-
-# --- Route Table ---
-# Note: firewall_private_ip comes from the firewall module output in root main.tf
-# This means your root module must call the firewall module before passing
-# its private IP into this module.
+#--- Route Table ---   
 
 resource "azurerm_route_table" "spoke" {
   name                = "rt-${var.vnet_spoke_name}"
