@@ -10,7 +10,7 @@ resource "azurerm_key_vault" "vault" {
   purge_protection_enabled    = true
   rbac_authorization_enabled  = true
   sku_name                    = "standard"
-  public_network_access_enabled = false
+  public_network_access_enabled = true
 }
 
 resource "azurerm_role_assignment" "key_vault_secret_officer" {
