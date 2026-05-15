@@ -54,6 +54,8 @@ resource "azurerm_logic_app_action_http" "apply_tag" {
   method       = "PATCH"
   uri          = "https://management.azure.com/@{body('parse-message')?['resource_id']}/providers/Microsoft.Resources/tags/default?api-version=2021-04-01"
 
+  depends_on = [azurerm_logic_app_action_custom.parse_message]
+
   body = jsonencode({
     operation = "Merge"
     properties = {
