@@ -1,11 +1,10 @@
 # Azure-Cloud-Security-Platform
 
 An end-to-end, production-grade Azure security platform built entirely in Terraform. Implements a hub-spoke secure landing zone with Azure Firewall, zero-trust identity via OIDC and Managed Identities, PaaS private networking with Private Endpoints, data encryption with Customer Managed Keys, cloud security posture management via Cloud Custodian and native Azure Policy, IaC security scanning in CI, and automated remediation via Logic Apps.
-
 ```mermaid
-graph TB
-    subgraph GitHub["GitHub Actions (OIDC)"]
-        GHA[CI/CD Pipeline]
+flowchart LR
+    subgraph CI["GitHub Actions"]
+        GHA[CI/CD Pipeline\nOIDC Federation]
     end
 
     subgraph Hub["Hub VNet"]
@@ -18,27 +17,25 @@ graph TB
         NSG[Network Security Groups]
     end
 
-    subgraph PaaS["PaaS Services"]
-        KV[Key Vault CMK]
+    subgraph PaaS["PaaS - Private Endpoints"]
+        KV[Key Vault]
         SA[Storage Accounts]
-        SQ[Custodian Findings Queue]
+        SQ[Findings Queue]
     end
 
-    subgraph Security["Security Tooling"]
+    subgraph SEC["Security Tooling"]
         CC[Cloud Custodian]
         PR[Prowler]
-        LA[Logic App Remediation]
+        LA[Logic App]
     end
 
-    GHA -->|OIDC Token| Hub
-    GHA --> CC
-    GHA --> PR
-    Hub <-->|VNet Peering| Spoke
-    FW -->|Inspects Traffic| Spoke
-    Spoke --> NSG
-    Spoke -.->|Private Endpoint| PaaS
+    GHA -->|OIDC Token| FW
+    GHA --> CC & PR
+    FW <-->|VNet Peering| VM
+    FW -->|Inspects| NSG
+    VM -.->|Private Endpoint| KV & SA
     CC -->|Findings| SQ
     SQ -->|Trigger| LA
-    LA -->|Auto Remediate| Spoke
-    KV -->|Manages Keys| SA
+    LA -->|Remediate| NSG
+    KV -->|CMK| SA
 ```
