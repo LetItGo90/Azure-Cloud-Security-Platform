@@ -1,0 +1,69 @@
+{
+  "policy": {
+    "name": "storage-https-not-enforced",
+    "resource": "azure.storage",
+    "description": "Find storage accounts without HTTPS only enforcement",
+    "filters": [
+      {
+        "type": "value",
+        "key": "properties.supportsHttpsTrafficOnly",
+        "op": "eq",
+        "value": false
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "14e0e31f-05ad-444f-bba9-10bb2b8991ef",
+    "start": 1778789259.306449,
+    "end_time": 1778789259.3077757,
+    "duration": 0.0013267993927001953
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "storage-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:07:39.307336",
+      "Value": 0,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:07:39.307341",
+      "Value": 0.0001537799835205078,
+      "Unit": "Seconds"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "policy": {
+    "name": "storage-container-public-access",
+    "resource": "azure.storage-container",
+    "description": "Find containers with public access enabled",
+    "filters": [
+      {
+        "type": "value",
+        "key": "properties.publicAccess",
+        "op": "not-equal",
+        "value": "None"
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "b12749bd-b636-45a5-aadd-3491d035a465",
+    "start": 1778789256.3891351,
+    "end_time": 1778789259.3006742,
+    "duration": 2.911539077758789
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "storage-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:07:39.299886",
+      "Value": 0,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:07:39.299896",
+      "Value": 2.9098808765411377,
+      "Unit": "Seconds"
+    }
+  ]
+}

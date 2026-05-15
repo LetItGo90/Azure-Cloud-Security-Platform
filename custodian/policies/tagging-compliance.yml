@@ -1,0 +1,27 @@
+policies:
+  - name: resourcegroup-missing-environment-tag
+    resource: azure.resourcegroup
+    description: Find resource groups missing the environment tag
+    filters:
+      - "tag:environment": absent
+
+
+  - name: resourcegroup-missing-project-tag
+    resource: azure.resourcegroup
+    description: Find resource groups missing the project tag
+    filters:
+      - "tag:project": absent
+
+
+  - name: nsg-missing-environment-tag
+    resource: azure.networksecuritygroup
+    description: Find NSGs missing the environment tag
+    filters:
+      - "tag:environment": absent
+
+
+  - name: vnet-missing-environment-tag
+    resource: azure.vnet
+    description: Find VNets missing the environment tag
+    filters:
+      - "tag:environment": absent

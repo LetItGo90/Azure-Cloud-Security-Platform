@@ -1,0 +1,66 @@
+{
+  "policy": {
+    "name": "resourcegroup-missing-environment-tag",
+    "resource": "azure.resourcegroup",
+    "description": "Find resource groups missing the environment tag",
+    "filters": [
+      {
+        "tag:environment": "absent"
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "0470555a-e368-4624-a0d4-6f552f7986eb",
+    "start": 1778789282.4987836,
+    "end_time": 1778789285.901879,
+    "duration": 3.4030954837799072
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "tagging-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:08:05.897756",
+      "Value": 2,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:08:05.897769",
+      "Value": 3.3981246948242188,
+      "Unit": "Seconds"
+    }
+  ]
+}

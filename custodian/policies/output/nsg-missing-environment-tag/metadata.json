@@ -1,0 +1,66 @@
+{
+  "policy": {
+    "name": "nsg-missing-environment-tag",
+    "resource": "azure.networksecuritygroup",
+    "description": "Find NSGs missing the environment tag",
+    "filters": [
+      {
+        "tag:environment": "absent"
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "866f9eef-7fad-4174-8f40-0f562dc7face",
+    "start": 1778789285.9229867,
+    "end_time": 1778789288.2732632,
+    "duration": 2.350276470184326
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "tagging-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:08:08.261012",
+      "Value": 3,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:08:08.261017",
+      "Value": 2.337099552154541,
+      "Unit": "Seconds"
+    }
+  ]
+}

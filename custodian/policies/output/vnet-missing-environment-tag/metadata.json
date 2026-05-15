@@ -1,0 +1,66 @@
+{
+  "policy": {
+    "name": "vnet-missing-environment-tag",
+    "resource": "azure.vnet",
+    "description": "Find VNets missing the environment tag",
+    "filters": [
+      {
+        "tag:environment": "absent"
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "4634312a-5dd2-48a3-9eae-a4b71c02886c",
+    "start": 1778789288.2803464,
+    "end_time": 1778789288.684574,
+    "duration": 0.40422749519348145
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "tagging-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:08:08.671173",
+      "Value": 2,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:08:08.671180",
+      "Value": 0.3899412155151367,
+      "Unit": "Seconds"
+    }
+  ]
+}

@@ -32,3 +32,8 @@ variable "data_subnet_prefix" {
 variable "pe_subnet_prefix" {
   type = string
 }
+
+variable "tags" {
+  type    = map(string)
+  default = {}
+}

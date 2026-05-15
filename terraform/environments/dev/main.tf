@@ -58,6 +58,16 @@ module "storage" {
   resource_group_name       = azurerm_resource_group.main.name
   location                  = azurerm_resource_group.main.location
   key_vault_key_id          = module.key_vault.key_vault_key_id
-  user_assigned_identity_id = module.identity.storage_cmk_identity_id
+  user_assigned_identity_id = module.identity.workload_identity_id
   depends_on                = [module.key_vault, module.identity]
+}
+
+module "remediation" {
+  source                       = "../../../remediation/logic-apps"
+  resource_group_name          = azurerm_resource_group.main.name
+  location                     = azurerm_resource_group.main.location
+  log_analytics_workspace_name = module.monitoring.log_analytics_workspace_name
+  log_analytics_workspace_id   = module.monitoring.log_analytics_workspace_id
+  storage_account_name         = module.storage.storage_account_name
+  tags                         = var.tags
 }

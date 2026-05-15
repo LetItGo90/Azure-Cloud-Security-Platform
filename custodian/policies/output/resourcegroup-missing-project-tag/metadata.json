@@ -1,0 +1,66 @@
+{
+  "policy": {
+    "name": "resourcegroup-missing-project-tag",
+    "resource": "azure.resourcegroup",
+    "description": "Find resource groups missing the project tag",
+    "filters": [
+      {
+        "tag:project": "absent"
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "21b2a52a-a1ed-4b73-bd6b-55b6b6e78a68",
+    "start": 1778789285.909467,
+    "end_time": 1778789285.9164994,
+    "duration": 0.0070323944091796875
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "tagging-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:08:05.910508",
+      "Value": 2,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:08:05.910516",
+      "Value": 0.00010132789611816406,
+      "Unit": "Seconds"
+    }
+  ]
+}

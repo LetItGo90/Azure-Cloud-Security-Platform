@@ -1,0 +1,28 @@
+policies:
+  - name: nsg-open-ssh
+    description: NSGs with inbound port 22 open to the internet.
+    resource: azure.networksecuritygroup
+    filters:
+     - type: ingress
+       ports: '22'
+       access: 'Allow'
+       source: '*'
+    actions:
+      - type: notify
+        transport:
+          type: azure-storage-queue
+          queue: https://storageaccount123131.queue.core.windows.net/custodian-findings
+
+  - name: close-rdp-access
+    description: NSGs with inbound port 3389 open to the internet.
+    resource: azure.networksecuritygroup
+    filters:
+     - type: ingress
+       ports: '3389'
+       access: 'Allow'
+       source: '*'
+    actions:
+      - type: notify
+        transport:
+          type: azure-storage-queue
+          queue: https://storageaccount123131.queue.core.windows.net/custodian-findings

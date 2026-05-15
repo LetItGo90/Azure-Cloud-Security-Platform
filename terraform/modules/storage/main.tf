@@ -16,12 +16,8 @@ resource "azurerm_storage_account" "storage" {
     ]
   }
 }
-
-
-
 resource "azurerm_storage_account_customer_managed_key" "managed_key" {
-  storage_account_id = azurerm_storage_account.storage.id
-  key_vault_key_id   = var.key_vault_key_id
+  storage_account_id        = azurerm_storage_account.storage.id
+  key_vault_key_id          = var.key_vault_key_id
   user_assigned_identity_id = var.user_assigned_identity_id
-  depends_on = [var.crypto_role_assignment_identity]
 }

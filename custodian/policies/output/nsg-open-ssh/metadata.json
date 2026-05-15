@@ -1,0 +1,69 @@
+{
+  "policy": {
+    "name": "nsg-open-ssh",
+    "description": "NSGs with inbound port 22 open to the internet.",
+    "resource": "azure.networksecuritygroup",
+    "filters": [
+      {
+        "type": "ingress",
+        "ports": "22",
+        "access": "Allow",
+        "source": "*"
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "3db3f888-7c5b-4c8a-822e-e4f9f0bbd2e9",
+    "start": 1778789245.2113261,
+    "end_time": 1778789248.4661934,
+    "duration": 3.2548673152923584
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "network-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:07:28.465532",
+      "Value": 0,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:07:28.465548",
+      "Value": 3.253380060195923,
+      "Unit": "Seconds"
+    }
+  ]
+}

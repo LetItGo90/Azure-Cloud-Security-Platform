@@ -1,0 +1,17 @@
+- name: keyvault-missing-deletion-protection
+    description: |
+      Find Key Vaults missing soft delete or purge protection
+    resource: azure.keyvault
+    filters:
+      - or:
+          - type: value
+            key: properties.enableSoftDelete
+            value: false
+          - type: value
+            key: properties.enablePurgeProtection
+            value: false
+    actions:
+      - type: notify
+        transport:
+          type: azure-storage-queue
+          queue: https://storageaccount123131.queue.core.windows.net/custodian-findings

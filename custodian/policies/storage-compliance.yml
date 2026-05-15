@@ -1,0 +1,28 @@
+policies:
+  - name: storage-container-public-access
+    resource: azure.storage-container
+    description: Find containers with public access enabled
+    filters:
+      - type: value
+        key: properties.publicAccess
+        op: not-equal
+        value: "None"
+    actions:
+      - type: notify
+        transport:
+          type: azure-storage-queue
+          queue: https://storageaccount123131.queue.core.windows.net/custodian-findings
+
+  - name: storage-https-not-enforced
+    resource: azure.storage
+    description: Find storage accounts without HTTPS only enforcement
+    filters:
+      - type: value
+        key: properties.supportsHttpsTrafficOnly
+        op: eq
+        value: false
+    actions:
+      - type: notify
+        transport:
+          type: azure-storage-queue
+          queue: https://storageaccount123131.queue.core.windows.net/custodian-findings

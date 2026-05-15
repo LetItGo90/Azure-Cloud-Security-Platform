@@ -1,0 +1,1 @@
+2026-05-14 15:08:08,260 - custodian.policy - INFO - policy:nsg-missing-environment-tag resource:azure.networksecuritygroup region:AzureCloud count:3 time:2.34

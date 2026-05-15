@@ -1,0 +1,28 @@
+[
+  {
+    "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/NetworkWatcherRG",
+    "name": "NetworkWatcherRG",
+    "type": "resourceGroups",
+    "properties": {
+      "provisioningState": "Succeeded"
+    },
+    "location": "eastus",
+    "c7n:MatchedFilters": [
+      "tag:environment",
+      "tag:project"
+    ]
+  },
+  {
+    "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev",
+    "name": "rg-azure-vuln-platform-dev",
+    "type": "resourceGroups",
+    "properties": {
+      "provisioningState": "Succeeded"
+    },
+    "location": "westcentralus",
+    "c7n:MatchedFilters": [
+      "tag:environment",
+      "tag:project"
+    ]
+  }
+]

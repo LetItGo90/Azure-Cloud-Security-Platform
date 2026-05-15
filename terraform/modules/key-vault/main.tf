@@ -83,10 +83,12 @@ resource "azurerm_key_vault_key" "vault_key" {
     expire_after         = "P90D"
     notify_before_expiry = "P29D"
   }
+
+  depends_on = [time_sleep.wait_for_rbac]
 }
 
 resource "azurerm_role_assignment" "vault-key-crypto-user-role" {
   scope                = azurerm_key_vault.vault.id
   role_definition_name = "Key Vault Crypto Service Encryption User"
-  principal_id         = azurerm_disk_encryption_set.example.identity[0].principal_id
+  principal_id         = var.workload_principal_id  
 }

@@ -1,0 +1,620 @@
+[
+  {
+    "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke",
+    "name": "nsg-app-vnet-spoke",
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "location": "westcentralus",
+    "tags": {},
+    "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+    "properties": {
+      "securityRules": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/securityRules/Deny-Internet-Inbound",
+          "name": "Deny-Internet-Inbound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "properties": {
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "Internet",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 4096,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/securityRules/Allow-HTTPS-Inbound",
+          "name": "Allow-HTTPS-Inbound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "properties": {
+            "protocol": "Tcp",
+            "sourcePortRange": "*",
+            "destinationPortRange": "443",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 100,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/securityRules/Allow-HTTP-Inbound",
+          "name": "Allow-HTTP-Inbound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "properties": {
+            "protocol": "Tcp",
+            "sourcePortRange": "*",
+            "destinationPortRange": "80",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 110,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        }
+      ],
+      "defaultSecurityRules": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/defaultSecurityRules/AllowVnetInBound",
+          "name": "AllowVnetInBound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow inbound traffic from all VMs in VNET",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65000,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/defaultSecurityRules/AllowAzureLoadBalancerInBound",
+          "name": "AllowAzureLoadBalancerInBound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow inbound traffic from azure load balancer",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "AzureLoadBalancer",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65001,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/defaultSecurityRules/DenyAllInBound",
+          "name": "DenyAllInBound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Deny all inbound traffic",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 65500,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/defaultSecurityRules/AllowVnetOutBound",
+          "name": "AllowVnetOutBound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65000,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/defaultSecurityRules/AllowInternetOutBound",
+          "name": "AllowInternetOutBound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow outbound traffic from all VMs to Internet",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "Internet",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65001,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-app-vnet-spoke/defaultSecurityRules/DenyAllOutBound",
+          "name": "DenyAllOutBound",
+          "etag": "W/\"65756163-9b23-42da-9694-30c271dde732\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Deny all outbound traffic",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 65500,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        }
+      ],
+      "subnets": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/RG-AZURE-VULN-PLATFORM-DEV/providers/Microsoft.Network/virtualNetworks/VNET-SPOKE/subnets/SNET-APP"
+        }
+      ],
+      "resourceGuid": "0f44fc7e-3b5b-4719-888e-a58e84d8864c",
+      "provisioningState": "Succeeded"
+    },
+    "resourceGroup": "rg-azure-vuln-platform-dev",
+    "c7n:MatchedFilters": [
+      "tag:environment"
+    ]
+  },
+  {
+    "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke",
+    "name": "nsg-data-vnet-spoke",
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "location": "westcentralus",
+    "tags": {},
+    "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+    "properties": {
+      "securityRules": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/securityRules/Deny-All-Inbound",
+          "name": "Deny-All-Inbound",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "properties": {
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 4096,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/securityRules/Allow-SQL-From-App",
+          "name": "Allow-SQL-From-App",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "properties": {
+            "protocol": "Tcp",
+            "sourcePortRange": "*",
+            "destinationPortRange": "1433",
+            "sourceAddressPrefix": "10.1.1.0/24",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 100,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        }
+      ],
+      "defaultSecurityRules": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/defaultSecurityRules/AllowVnetInBound",
+          "name": "AllowVnetInBound",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow inbound traffic from all VMs in VNET",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65000,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/defaultSecurityRules/AllowAzureLoadBalancerInBound",
+          "name": "AllowAzureLoadBalancerInBound",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow inbound traffic from azure load balancer",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "AzureLoadBalancer",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65001,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/defaultSecurityRules/DenyAllInBound",
+          "name": "DenyAllInBound",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Deny all inbound traffic",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 65500,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/defaultSecurityRules/AllowVnetOutBound",
+          "name": "AllowVnetOutBound",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65000,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/defaultSecurityRules/AllowInternetOutBound",
+          "name": "AllowInternetOutBound",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow outbound traffic from all VMs to Internet",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "Internet",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65001,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-data-vnet-spoke/defaultSecurityRules/DenyAllOutBound",
+          "name": "DenyAllOutBound",
+          "etag": "W/\"821e7b73-c7a4-4978-afaa-cca3892628ff\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Deny all outbound traffic",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 65500,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        }
+      ],
+      "subnets": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/RG-AZURE-VULN-PLATFORM-DEV/providers/Microsoft.Network/virtualNetworks/VNET-SPOKE/subnets/SNET-DATA"
+        }
+      ],
+      "resourceGuid": "ad579446-b2fe-4739-be83-3f0d23efe5c6",
+      "provisioningState": "Succeeded"
+    },
+    "resourceGroup": "rg-azure-vuln-platform-dev",
+    "c7n:MatchedFilters": [
+      "tag:environment"
+    ]
+  },
+  {
+    "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke",
+    "name": "nsg-pe-vnet-spoke",
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "location": "westcentralus",
+    "tags": {},
+    "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+    "properties": {
+      "securityRules": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/securityRules/Deny-Internet-Inbound",
+          "name": "Deny-Internet-Inbound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "properties": {
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "Internet",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 4096,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/securityRules/Allow-VNet-Inbound",
+          "name": "Allow-VNet-Inbound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "properties": {
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 100,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        }
+      ],
+      "defaultSecurityRules": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/defaultSecurityRules/AllowVnetInBound",
+          "name": "AllowVnetInBound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow inbound traffic from all VMs in VNET",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65000,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/defaultSecurityRules/AllowAzureLoadBalancerInBound",
+          "name": "AllowAzureLoadBalancerInBound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow inbound traffic from azure load balancer",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "AzureLoadBalancer",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65001,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/defaultSecurityRules/DenyAllInBound",
+          "name": "DenyAllInBound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Deny all inbound traffic",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 65500,
+            "direction": "Inbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/defaultSecurityRules/AllowVnetOutBound",
+          "name": "AllowVnetOutBound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65000,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/defaultSecurityRules/AllowInternetOutBound",
+          "name": "AllowInternetOutBound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Allow outbound traffic from all VMs to Internet",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "Internet",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Allow",
+            "priority": 65001,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        },
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/rg-azure-vuln-platform-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-pe-vnet-spoke/defaultSecurityRules/DenyAllOutBound",
+          "name": "DenyAllOutBound",
+          "etag": "W/\"d884a305-e813-4f93-af65-f62e2d2b28d7\"",
+          "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+          "properties": {
+            "description": "Deny all outbound traffic",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "*",
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefix": "*",
+            "destinationAddressPrefixes": [],
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "access": "Deny",
+            "priority": 65500,
+            "direction": "Outbound",
+            "provisioningState": "Succeeded"
+          }
+        }
+      ],
+      "subnets": [
+        {
+          "id": "/subscriptions/fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac/resourceGroups/RG-AZURE-VULN-PLATFORM-DEV/providers/Microsoft.Network/virtualNetworks/VNET-SPOKE/subnets/SNET-PE"
+        }
+      ],
+      "resourceGuid": "655ed8a1-5f3c-4876-a38d-71d2cbce3423",
+      "provisioningState": "Succeeded"
+    },
+    "resourceGroup": "rg-azure-vuln-platform-dev",
+    "c7n:MatchedFilters": [
+      "tag:environment"
+    ]
+  }
+]

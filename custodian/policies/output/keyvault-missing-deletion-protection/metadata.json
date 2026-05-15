@@ -1,0 +1,77 @@
+{
+  "policy": {
+    "name": "keyvault-missing-deletion-protection",
+    "description": "Find Key Vaults missing soft delete or purge protection\n",
+    "resource": "azure.keyvault",
+    "filters": [
+      {
+        "or": [
+          {
+            "type": "value",
+            "key": "properties.enableSoftDelete",
+            "value": false
+          },
+          {
+            "type": "value",
+            "key": "properties.enablePurgeProtection",
+            "value": false
+          }
+        ]
+      }
+    ]
+  },
+  "version": "0.9.50",
+  "execution": {
+    "id": "26ab89e4-a194-47cd-b28a-6424bcf5e4c9",
+    "start": 1778789232.677779,
+    "end_time": 1778789236.521803,
+    "duration": 3.8440239429473877
+  },
+  "config": {
+    "region": "AzureCloud",
+    "regions": [],
+    "cache": "memory",
+    "profile": null,
+    "account_id": "fd0adf6a-200d-4cd8-99eb-c9be0c10f5ac",
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "keyvault-compliance.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2026-05-14T15:07:16.521185",
+      "Value": 0,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2026-05-14T15:07:16.521195",
+      "Value": 3.842582941055298,
+      "Unit": "Seconds"
+    }
+  ]
+}
