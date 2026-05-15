@@ -18,16 +18,16 @@ graph TB
         NSG[Network Security Groups]
     end
 
-    subgraph PaaS["PaaS Services - Private Endpoints"]
-        KV[Key Vault\nCMK Encryption]
+    subgraph PaaS["PaaS Services"]
+        KV[Key Vault CMK]
         SA[Storage Accounts]
-        SQ[Storage Queue\nCustodian Findings]
+        SQ[Custodian Findings Queue]
     end
 
     subgraph Security["Security Tooling"]
         CC[Cloud Custodian]
         PR[Prowler]
-        LA[Logic App\nRemediation]
+        LA[Logic App Remediation]
     end
 
     GHA -->|OIDC Token| Hub
@@ -41,4 +41,4 @@ graph TB
     SQ -->|Trigger| LA
     LA -->|Auto Remediate| Spoke
     KV -->|Manages Keys| SA
-```​
+```
